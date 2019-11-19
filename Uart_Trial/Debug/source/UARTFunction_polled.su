@@ -1,0 +1,11 @@
+UARTFunction_polled.c:22:6:delay1	16	static
+UARTFunction_polled.c:29:6:uart_init_polled	16	static
+UARTFunction_polled.c:79:9:transmit_available	8	static
+UARTFunction_polled.c:85:6:transmit_data	16	static
+UARTFunction_polled.c:89:6:Transmit_polled	16	static
+UARTFunction_polled.c:96:9:Receive_available	8	static
+UARTFunction_polled.c:101:9:Receive_data	8	static
+UARTFunction_polled.c:105:6:Recieve_polled	16	static
+stdio.h:157:12:fputc	16	static
+stdio.h:154:12:fgetc	16	static
+UARTFunction_polled.c:128:6:Send_String_Poll	16	static

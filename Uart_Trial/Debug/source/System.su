@@ -1,0 +1,6 @@
+System.c:43:6:System_Init	8	static
+System.c:50:6:System_Shutdown	8	static
+System.c:59:6:System_Recover	8	static
+System.c:68:6:System_Safestate	8	static
+System.c:85:6:System_WriteString	16	static
+System.c:90:6:System_WriteInt	16	static

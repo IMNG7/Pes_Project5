@@ -1,0 +1,9 @@
+circular_buffer.c:19:6:circular_buffer_init	24	static
+circular_buffer.c:30:13:advance_pointer	16	static
+circular_buffer.c:58:7:circular_buffer_add	16	static
+circular_buffer.c:72:13:retreat_pointer	16	static
+circular_buffer.c:81:9:circular_buffer_remove	24	static
+circular_buffer.c:96:7:circular_buffer_reset	16	static
+circular_buffer.c:107:7:circular_buffer_full	16	static
+circular_buffer.c:122:8:circular_buffer_capacity	16	static
+circular_buffer.c:128:6:circular_buf_empty	16	static
