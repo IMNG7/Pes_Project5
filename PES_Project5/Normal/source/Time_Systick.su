@@ -1,0 +1,2 @@
+Time_Systick.c:13:6:SysTick_Handler	16	static
+Time_Systick.c:27:6:display_time	16	static

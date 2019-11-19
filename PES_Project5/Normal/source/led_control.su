@@ -1,0 +1,5 @@
+fsl_gpio.h:175:20:GPIO_SetPinsOutput	16	static
+fsl_gpio.h:186:20:GPIO_ClearPinsOutput	16	static
+led_control.c:19:6:delay	16	static
+led_control.c:32:6:Led_Initialize	24	static
+led_control.c:51:6:led_control	16	static
