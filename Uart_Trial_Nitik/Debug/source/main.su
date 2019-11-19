@@ -1,4 +1,4 @@
 core_cm0plus.h:804:22:NVIC_SetPriority	24	static
 core_cm0plus.h:885:26:SysTick_Config	16	static
-main.c:69:5:main	48	static
-main.c:228:6:display_report	16	static
+main.c:70:5:main	56	static
+main.c:234:6:display_report	24	static

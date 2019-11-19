@@ -57,7 +57,7 @@ void led_control(UART_State a)
 		LED_BLUE_ON();
 		delay();
 	}
-	else if(a==Error_case)
+	else if(a==Fail_case)
 	{	LED_BLUE_OFF();
 		LED_GREEN_OFF();
 		LED_RED_ON();

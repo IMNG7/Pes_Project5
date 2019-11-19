@@ -17,7 +17,6 @@
 #include "UARTFunction_Interrupt.h"
 #include "UARTFunction_polled.h"
 #include "led_control.h"
-#include "uCUnit-v1.0.h"
 #define BaudRate 115200
 #define Sys_Clock CLOCK_GetFreq(kCLOCK_PllFllSelClk)
 volatile uint8_t character_recieve,character_transmit;
@@ -84,14 +83,12 @@ void uart_init_interrupt()
 
 	// Enable receive interrupts but not transmit interrupts yet
 	UART0->C2 |= UART_C2_RIE(1);
-	UCUNIT_CheckIsBitSet(UART0->C2,5);
 	// Enable UART receiver and transmitter
 		UART0->C2 |= UART0_C2_RE(1) | UART0_C2_TE(1);
 
 		// Clear the UART RDRF flag
 		temp = UART0->D;
 		UART0->S1 &= ~UART0_S1_RDRF_MASK;
-		UCUNIT_CheckIsBitClear(UART0->S1,5);
 
 }
 uint8_t transmit_available_interrupt()
@@ -133,7 +130,6 @@ uint8_t Receive_data_interrupt()
 {	led_control(Recieve);
 	uint8_t temp=UART0->D;
 	UART0->C2 |= UART0_S1_RDRF_MASK;
-	UCUNIT_CheckIsBitSet(UART0->C2,5);
 	flag=2;
 	PRINTF("\n\r ENTER a Character:");
 	while(1)
@@ -141,7 +137,6 @@ uint8_t Receive_data_interrupt()
 
 		if(flag==1)
 		{	UART0->S1 &= ~UART0_S1_RDRF_MASK;
-			UCUNIT_CheckIsBitClear(UART0->S1,5);
 			break;
 
 		}
@@ -156,7 +151,6 @@ void Send_String_interrupt(char * str) {
 		transmit_data_interrupt(character_transmit);
 	}
 	UART0->C2&=~UART0_C2_TIE_MASK;
-	UCUNIT_CheckIsBitClear(UART0->C2,7);
 }
 void UART0_IRQHandler(void) {
 	printf("\n\rINSIDE ISR");
@@ -187,7 +181,8 @@ void UART0_IRQHandler(void) {
 		// can send another character
 			txavailable=1;
 			UART0->C2&= ~UART0_C2_TIE_MASK;
-			UCUNIT_CheckIsBitClear(UART0->C2,7);
+
+
 		}
 
 

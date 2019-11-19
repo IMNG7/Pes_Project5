@@ -13,7 +13,7 @@ typedef enum UART_Mode
 }UART_Mode;
 typedef enum UART_State
 {
-	Initialization,Transmit,Recieve,Error_case
+	Initialization,Transmit,Recieve,Fail_case
 }UART_State;
 
 #endif /* STATUS_H_ */

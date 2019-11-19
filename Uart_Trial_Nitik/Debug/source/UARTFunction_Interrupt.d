@@ -9,7 +9,7 @@ source/UARTFunction_Interrupt.o source/UARTFunction_Interrupt.d: \
  ../board/pin_mux.h ../board/clock_config.h ../CMSIS/MKL25Z4.h \
  ../utilities/fsl_debug_console.h ../source/Logger.h ../source/Status.h \
  ../source/UARTFunction_Interrupt.h ../source/UARTFunction_polled.h \
- ../source/led_control.h ../source/uCUnit-v1.0.h
+ ../source/led_control.h
 
 ../board/board.h:
 
@@ -58,5 +58,3 @@ source/UARTFunction_Interrupt.o source/UARTFunction_Interrupt.d: \
 ../source/UARTFunction_polled.h:
 
 ../source/led_control.h:
-
-../source/uCUnit-v1.0.h:

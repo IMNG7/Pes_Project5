@@ -51,13 +51,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "Time_Systick.h"
+#include "stdlib.h"
 #define BUFFER_SIZE 5
 uint16_t SIZE = BUFFER_SIZE;
 uint8_t Status=Polling;
 uint16_t count_chars[26] = {0};
 uint16_t count_CHARS[26] = {0};
 uint16_t count_num[10] = {0};
-
+void display_report();
 /* TODO: insert other include files here. */
 
 /* TODO: insert other definitions and declarations here. */
@@ -81,6 +82,9 @@ int main(void) {
     SysTick_Config(48000000/160000);
     //uart_init_interrupt();
     uint8_t data = 0;
+    memset(count_CHARS,0,sizeof(count_CHARS));
+    memset(count_chars,0,sizeof(count_chars));
+    memset(count_num,0,sizeof(count_num));
     uint8_t choice;
     display_String("Hello User,There are two modes you can work in.\n\r");
     display_String("1.Polling\n\r");
@@ -112,7 +116,7 @@ int main(void) {
 
         int32_t i=-1;
     /////For input from UART
-        uint8_t char_array[] = {'\0'};
+        uint8_t char_array[BUFFER_SIZE] = {'\0'};
         //uint32_t iter = 0;
         do
         {	i++;
@@ -142,11 +146,11 @@ int main(void) {
             bool res = circular_buffer_valid(cbuf_handle);
             if(res)
             {
-            	printf("\n\r The buffer pointer is valid");
+            	display_String("\n\r The buffer pointer is valid");
             }
             else
             {
-            	printf("\n\r Invalid Buffer pointer");
+            	display_String("\n\r Invalid Buffer pointer");
             }
 
             circular_buffer_init(buffer, SIZE, cbuf_handle);
@@ -154,11 +158,11 @@ int main(void) {
             res = circular_buffer_init_check(cbuf_handle);
             if(res)
             {
-               	printf("\n\r The buffer pointer is initialized");
+            	display_String("\n\r The buffer pointer is initialized");
             }
             else
             {
-              	printf("\n\r Couldn't initialize buffer");
+            	display_String("\n\r Couldn't initialize buffer");
             }
 
             cbuf_handle->tail = 0;
@@ -168,7 +172,8 @@ int main(void) {
             for(uint32_t i = 0; i < 7; i++)
             {
                 circular_buffer_add(cbuf_handle, char_array[i]);
-                printf("\n\rData being added char_array[i]: %d",char_array[i]);
+                display_String("\n\rData being added char_array[i]: ");
+                Print_Data(char_array[i]);
                 circular_buffer_full(cbuf_handle);
             }
     //        for(uint8_t i = 0; i < (SIZE+2); i++)
@@ -187,17 +192,18 @@ int main(void) {
             {
             	circular_buffer_remove(cbuf_handle, &data);
             	//Send_String_Poll("\n\rThe last data in the buffer that's read and removed is ");
-            	printf("\n\rdata-> %d",data);
+                display_String("\n\rdata-> ");
+                Print_Data(data);
             	//Transmit_polled(data);
             }
         	circular_buffer_remove(cbuf_handle, &data);
 
-            Send_String_Poll("\n\rEnter a string to check for character frequency: ");
+            display_String("\n\rEnter a string to check for character frequency: ");
 
             uint32_t a = 0;
 
-            printf("\n\rSizeof char_array: %d", sizeof(char_array));
-
+            display_String("\n\rSizeof char_array: ");
+            printf( sizeof(char_array));
             for(a = 0; a < sizeof(char_array); a++)
             {
             	if((char_array[a] >= 'a') && (char_array[a] <= 'z'))
@@ -226,13 +232,17 @@ int main(void) {
     return 0 ;
 }
 void display_report()
-{
+{	char cha[10];
     uint32_t a = 0;
 	for(a='a';a<='z';a++)
 	{
 	   	if(count_chars[a-'a']!=0)
 	   	{
-	  		printf("\n\rFrequency of %c is %d",a,count_chars[a-'a']);
+	  		display_String("\n\rFrequency of ");
+	  		Print_Data(a);
+	  		display_String("is");
+	  		itoa(count_chars[a-'a'],cha,10);
+	  		display_String(cha);
 	   	}
 	}
 
@@ -240,7 +250,11 @@ void display_report()
 	{
 	   	if(count_CHARS[a-'A']!=0)
 	   	{
-	   		printf("\n\rFrequency of %c is %d",a,count_CHARS[a-'A']);
+	   		display_String("\n\rFrequency of ");
+	   		Print_Data(a);
+	   		display_String("is");
+	   		itoa(count_CHARS[a-'A'],cha,10);
+	   		display_String(cha);
 	   	}
 	}
 
@@ -248,7 +262,12 @@ void display_report()
 	{
 	   	if(count_num[a-'0']!=0)
 	   	{
-	   		printf("\n\rFrequency of %c is %d",a,count_num[a-'0']);
+
+	   		display_String("\n\rFrequency of ");
+	   		Print_Data(a);
+	   		display_String(" is ");
+	   		itoa(count_num[a-'0'],cha,10);
+	   		display_String(cha);
 	   	}
 	}
 }
