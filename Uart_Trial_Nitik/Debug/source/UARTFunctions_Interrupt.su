@@ -1,0 +1,10 @@
+UARTFunctions_Interrupt.c:20:6:uart_init_polled	16	static
+UARTFunctions_Interrupt.c:35:9:transmit_available	8	static
+UARTFunctions_Interrupt.c:43:6:transmit_data	16	static
+UARTFunctions_Interrupt.c:47:6:Transmit_polled	16	static
+UARTFunctions_Interrupt.c:54:9:Receive_available	8	static
+UARTFunctions_Interrupt.c:61:10:Receive_data	16	static
+UARTFunctions_Interrupt.c:66:10:Recieve_polled	24	static
+stdio.h:157:12:fputc	16	static
+stdio.h:154:12:fgetc	32	static
+UARTFunctions_Interrupt.c:85:6:Send_String_Poll	16	static

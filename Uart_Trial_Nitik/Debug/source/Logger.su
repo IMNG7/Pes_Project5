@@ -1,0 +1,8 @@
+Logger.c:66:6:Log_Enable	8	static
+Logger.c:76:6:Log_Disable	8	static
+Logger.c:86:9:Log_Status	8	static
+Logger.c:96:6:Log_Data	32	static
+Logger.c:112:6:Log_String	16	static
+Logger.c:122:6:display_String	16	static
+Logger.c:138:6:Log_Integer	16	static
+Logger.c:146:6:Print_Data	16	static

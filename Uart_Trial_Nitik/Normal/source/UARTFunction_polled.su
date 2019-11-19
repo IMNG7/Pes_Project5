@@ -1,0 +1,12 @@
+core_cm0plus.h:756:22:NVIC_DisableIRQ	16	static
+UARTFunction_polled.c:25:6:delay1	16	static
+UARTFunction_polled.c:32:6:uart_init_polled	16	static
+UARTFunction_polled.c:86:9:transmit_available	8	static
+UARTFunction_polled.c:93:6:transmit_data	16	static
+UARTFunction_polled.c:98:6:Transmit_polled	16	static
+UARTFunction_polled.c:106:9:Receive_available	8	static
+UARTFunction_polled.c:112:9:Receive_data	8	static
+UARTFunction_polled.c:117:6:Recieve_polled	16	static
+stdio.h:157:12:fputc	16	static
+stdio.h:154:12:fgetc	16	static
+UARTFunction_polled.c:142:6:Send_String_Poll	16	static
